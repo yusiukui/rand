@@ -1,9 +1,10 @@
 from hashlib import sha_384
+from time import time_ns
 def _int32(x):
     return int(0xFFFFFFFF & x)
 
 class Random:
-    def __init__(self, seed):
+    def __init__(self, seed=time_ns):
         self.mt = [0] * 624
         self.mt[0] = seed
         self.mti = 0
